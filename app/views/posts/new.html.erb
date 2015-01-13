@@ -1,0 +1,7 @@
+THIS IS THE PAGE WHERE YOU ADD A POST
+
+<%= form_for :post do |f| %>
+  <%= f.text_field :title, placeholder: "Post title" %>
+  <%= f.text_field :link, placeholder: "Enter URL" %>
+  <%= f.submit %>
+<% end %>
