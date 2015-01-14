@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   get '/' => 'posts#home'
 
   resources :posts
+  resources :users, :only => [:show]
 
   get "signup" => "users#new"
   post "signup" => "users#create"
+  # get "users/:id" => "users#show"
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"

@@ -1,7 +1,10 @@
-THIS IS THE PAGE WHERE YOU ADD A POST
+<%= render :partial => "partials/flash" %>
 
-<%= form_for :post do |f| %>
+<h2>Add a post!</h2>
+
+<%= bootstrap_form_for @post do |f| %>
   <%= f.text_field :title, placeholder: "Post title" %>
   <%= f.text_field :link, placeholder: "Enter URL" %>
+
   <%= f.submit %>
 <% end %>

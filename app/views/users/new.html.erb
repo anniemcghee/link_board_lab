@@ -1,9 +1,15 @@
-THIS IS THE SIGNUP FORM THAT WILL CREATE A NEW USER
+<div class="row text-center">
 
-<%= form_for :user do |f| %>
+<h2>Sign Up</h2>
+
+<%= render :partial => "partials/flash" %>
+
+<%= bootstrap_form_for :user do |f| %>
   <%= f.text_field :name, placeholder: "Enter your first name" %>
   <%= f.text_field :email, placeholder: "Enter your email" %>
   <%= f.password_field :password, placeholder: "Enter your password" %>
   <%= f.password_field :password_confirmation, placeholder: "Enter your password" %>
   <%= f.submit %>
 <% end %>
+
+</div>

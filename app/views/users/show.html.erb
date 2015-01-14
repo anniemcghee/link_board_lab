@@ -1,5 +1,4 @@
-
-<%= render :partial => "partials/flash" %>
+<div class="row text-center"><h2>All posts by <%= @user.name %>:</h2></div>
 
 <div class="container-fluid text-center">
 <table class="table table-hover">
@@ -27,6 +26,9 @@
   </div>
   <div class="col-md-3">
       <h4><%= f.user.name %></h4>
+  </div>
+  <div class="col-md-2">
+      <h4><%= link_to "X", f, method: :delete, :data => {:confirm => "Are you sure?"}, class: "btn btn-primary" %></h4>
   </div>
 </td>
 </tr>

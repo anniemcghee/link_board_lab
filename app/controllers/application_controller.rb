@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
 
   def not_found
-    raise ActionController::RoutingError.new('Chicken Not Found')
+    raise ActionController::RoutingError.new('Not Found')
     # you can change views of errors in public folder!
   end
 

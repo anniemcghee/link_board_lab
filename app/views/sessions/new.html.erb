@@ -1,6 +1,8 @@
-THIS IS THE LOGIN FORM THAT WILL TRIGGER THE BEGINING OF A SESSION
+<%= render :partial => "partials/flash" %>
 
-<%= form_for :user do |f| %>
+<h2>Login</h2>
+
+<%= bootstrap_form_for :user do |f| %>
   <%= f.text_field :email, placeholder: "Enter your email" %>
   <%= f.password_field :password, placeholder: "Enter your password" %>
   <%= f.submit %>

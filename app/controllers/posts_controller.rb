@@ -8,22 +8,25 @@ class PostsController < ApplicationController
     # redirect_to login_path unless @user
 
   def index
+    @user = current_user
     @post = Post.all
   end
 
 
   def new
-    @post = Post.new(params.require(:post).permit(:title, :link))
-    if @post.save
-      redirect_to '/posts'
-    else
-      render 'index'
-    end
+    @user = current_user
+    @post = Post.new
+    # if @post.save
+    #   redirect_to '/posts'
+    # else
+    #   render 'index'
+    # end
 
   end
 
   def update
-   @post = Post.find(params[:id]) or not_found
+    @user = current_user
+    @post = Post.find(params[:id]) or not_found
     if @post.update_attributes(params.require(:post).permit(:title, :link))
       redirect_to '/posts'
     else
@@ -34,12 +37,13 @@ class PostsController < ApplicationController
   def destroy
     p = Post.find_by_id(params[:id]) or not_found
     p.destroy
-    redirect_to posts_path
+    redirect_to user_path
   end
 
   def create
-      @post = Post.new(params.require(:post).permit(:title, :link))
-      if @post.save
+      @user = current_user
+      @post = @user.posts.create(params.require(:post).permit(:title, :link))
+      unless @post.errors.any?
         flash[:success] = "Your post has been added."
         #flash success is a BOOTSTRAP term related to "alert-success" class.
         #Look at erb file index to show how it's called via the first param / key
@@ -51,11 +55,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @user = current_user
+    @post = @user.posts.find_by_id(params[:user_id])
     not_found unless @post #carries error
   end
 
   def edit
+    @user = current_user
     @post = Post.find_by_id(params[:id]) or not_found
   end
 

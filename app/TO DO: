@@ -1,7 +1,10 @@
 TO DO:
 
--Make nav bar links rails style
--Refine forms for add post and signup related to controllers - not working
+-Show posts on View
+
 -Test flash alerts
--Make forms bootstrap
+
 -Add edit and delete buttons once posts are working
+
+-Create Post button appears when someone is logged in and name
+
